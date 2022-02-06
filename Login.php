@@ -25,12 +25,12 @@ include "./Utils/Header.php";
                                         <h4 class="mb-4 pb-3">Connection</h4>
                                         <form method="post" action="./Process/Connect.php">
                                             <div class="form-group">
-                                                <input type="email" name="logemail" class="form-style"
+                                                <input type="email" name="logEmail" class="form-style"
                                                        placeholder="Email" id="logemail" autocomplete="off">
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" name="logpass" class="form-style"
+                                                <input type="password" name="logPass" class="form-style"
                                                        placeholder="Password" id="logpass" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
@@ -46,7 +46,7 @@ include "./Utils/Header.php";
                                         <h4 class="mb-4 pb-3">Créer un compte</h4>
                                         <form method="post" action="./Process/New_account.php">
                                             <div class="form-group">
-                                                <input type="text" name="logname" class="form-style" placeholder="Nom"
+                                                <input type="text" name="logName" class="form-style" placeholder="Nom"
                                                        id="logname" autocomplete="off">
                                                 <i class="input-icon uil uil-user"></i>
                                             </div>
@@ -60,7 +60,7 @@ include "./Utils/Header.php";
                                                        placeholder="Password" id="logpass" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <a href="#" class="btn mt-4">Envoyer</a>
+                                            <button type="submit" class="btn mt-4">Envoyer</button>
                                         </form>
                                     </div>
                                 </div>
