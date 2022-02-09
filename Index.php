@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "./Utils/Header.php";
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,9 +27,7 @@ include "./Utils/Header.php";
         <div class="Search">
             <div class="Search_Container">
                 <div class="Search_Box">
-                    <form method="get">
-                        <input type="text" name="Search" placeholder="Artistes, titres ou podcasts" class="Search_input Search_input_option" data-testid="search-input" value="<?=$_GET['Search']?>" onsubmit="search()" >
-                    </form>
+                    <input placeholder="" class="Search_input Search_input_option">
                     <div class="Search_icon"><span class="Search_icon_option">
                             <svg role="img" height="24" width="24" class="Svg-sc-1bi12j5-0 hDgDGI mOLTJ2mxkzHJj6Y9_na_" viewBox="0 0 24 24">
                                 <path d="M16.387 16.623A8.47 8.47 0 0019 10.5a8.5 8.5 0 10-8.5 8.5 8.454 8.454 0 005.125-1.73l4.401 5.153.76-.649-4.399-5.151zM10.5 18C6.364 18 3 14.636 3 10.5S6.364 3 10.5 3 18 6.364 18 10.5 14.636 18 10.5 18z"></path></svg></span>
@@ -49,18 +48,40 @@ include "./Utils/Header.php";
             <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" id="output" width="200"/>
             </div>
             <div class="User_Pos">
-                <p class="user">Xavier</p>
+                <p class="user"><?=$_SESSION['username']?></p>
             </div>
         </div>
-    </header>
+    </html>
 <main>
-    <div data-testid="grid-container" class="Spotify_Embed_Params Spotify_Embed_Option BtbiwMynlB4flsYu_hA2" style="--column-width:182px;--minimumColumnWidth:180px;">
-        <div class="spotify-embeds">
-            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:2UDe8QqHAXUaLrdb0QsDGE" width="auto" height="80" allowtransparency="true"></iframe></div>
-            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:51vBEL5eVtII7uIEDltWwB" width="auto" height="80" allowtransparency="true"></iframe></div>
-            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:dembsky:playlist:7qfcDxieRKE6VOFE3YNKbz" width="auto" height="80" allowtransparency="true"></iframe></div>
-            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:thech053none:playlist:3epVhtO7ZWOB4DzuJFY5da" width="auto" height="80" allowtransparency="true"></iframe></div>
-        </div>
+    <div class="container">
+        <form action="">
+            <input type="hidden" id='hidden_token'>
+            <label for="Genre" class="form-label col-sm-2"></label>
+            <select name="" id="select_genre" class="Select_input col-sm-2">
+                <option>Select...</option>
+            </select>
+            <label for="Genre"></label>
+            <select name="" id="select_playlist" class="Select_input col-sm-2">
+                <option>Select...</option>
+            </select>
+            <button type="submit" id="btn_submit"><svg id="sendbtn" xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="Send"
+                                                       viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                </svg>
+                <i class="Send"></i></button>
+        </form>
     </div>
+    </div>
+    <div id="song-detail">
+    </div>
+<!--    <div data-testid="grid-container" class="Spotify_Embed_Params Spotify_Embed_Option BtbiwMynlB4flsYu_hA2" style="--column-width:182px;--minimumColumnWidth:180px;">-->
+<!--        <div class="spotify-embeds">-->
+<!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:2UDe8QqHAXUaLrdb0QsDGE" width="auto" height="80" allowtransparency="true"></iframe></div>-->
+<!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:51vBEL5eVtII7uIEDltWwB" width="auto" height="80" allowtransparency="true"></iframe></div>-->
+<!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:dembsky:playlist:7qfcDxieRKE6VOFE3YNKbz" width="auto" height="80" allowtransparency="true"></iframe></div>-->
+<!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:thech053none:playlist:3epVhtO7ZWOB4DzuJFY5da" width="auto" height="80" allowtransparency="true"></iframe></div>-->
+<!--        </div>-->
+<!--    </div>-->
 </main>
 <script src="JS/index.js"></script>
+<script src="JS/Api.js"></script>
