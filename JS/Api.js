@@ -127,13 +127,12 @@ const UIController = (function() {
 
         // need method to create a track list group item
         createTrack(id, name) {
-            const html = `<a href="#"  id="${id}">${name}</a>
-`;
+            const html = `<a href="#"  id="${id}">${name}</a>`;
             document.querySelector(DOMElements.divSonglist).insertAdjacentHTML('beforeend', html);
         },
 
         // need method to create the song detail
-        createTrackDetail(img, title, artist, releaseDate) {
+        createTrackDetail(img, title, artist) {
 
             const detailDiv = document.querySelector(DOMElements.divSongDetail);
 
@@ -141,16 +140,11 @@ const UIController = (function() {
 
                 `
                             <div class="Box_Card">
-                                <a target="" class="card">
-                                    <img class="card-img" src="${img}">
-                                        <div class="card-details">
-                                            <h2>${artist}</h2>
-                                            <p class="card-hidden card-artist">${title}</p>
-                                        </div>
-                                        <div class="card-hidden card-footer">
-                                            <small>${releaseDate}</small> <small>45 min</small>
-                                        </div>
-                                </a>
+                               <img class="card-img" src="${img}">
+                                 <div class="card-details">
+                                      <h2>${artist}</h2>
+                                      <p>${title}</p>
+                                 </div>
                             </div>    
             `;
 
