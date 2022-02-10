@@ -1,22 +1,31 @@
 <?php
 
 session_start();
-$user = $_SESSION['user_id'];
+$userid = $_SESSION['user_id'];
 $Mail = $_POST ['logemail'];
-$Password = $_POST ['logpass'];
 $newPass = $_POST ['newPass'];
 $confNewPass = $_POST ['confNewPass'];
-include "../Utils/DB_Connect.php";
 
-if (count($_POST) > 0) {
-    $sql = ("SELECT * from users WHERE user_id='" . $_SESSION["user_id"] . "'");
+if (
+    isset($_POST['logemail'])
+    && isset($_POST['newPass'])
+    && isset($_POST['confNewPass'])
+    && !empty($_POST['logemail'])
+    && !empty($_POST['newPass'])
+    && !empty($_POST['confNewPass'])
+) {
+    include "../Utils/DB_Connect.php";
+    $sql = ("SELECT email from users WHERE user_id= ?");
     $stmt = $bdd->prepare($sql);
-    $stmt->execute([$Mail]);
+    $stmt->execute([$userid]);
     # si l'email existe
     $user = $stmt->fetch();
-    if ($_POST['newPass'] == $_POST ['confNewPass']) {
-        $pdo = $bdd->prepare("UPDATE users set password='" . $_POST["newPass"] . "' WHERE user_id='" . $_SESSION["user_id"] . "'");
-        $message = "mot de passe changé avec succès";
+    if ($newPass === $confNewPass) {
+        $pdo = $bdd->prepare("UPDATE users set password= ? WHERE user_id= ?");
+        $test = $pdo->execute([$newPass, $userid]);
+        header('Location: ../Index.php');
     } else
-        $message = "try again!";
+        header('Location: ../resetPass.php?Error=Les mot de passe de passe ne corresponde pas !');
+}else{
+    header('Location: ../resetPass.php?Error=Formulaire incorrecte');
 }

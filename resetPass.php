@@ -16,15 +16,21 @@ include "./Utils/Header.php";
         <div class="row full-height justify-content-center">
             <div class="col-12 text-center align-self-center py-5">
                 <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                    <h6 class="mb-0 pb-3"><span id="connect" onclick="checkedisFalse()">Aide</span></h6>
-                    <label for="boxCheck"></label>
+                    <h6 class="mb-0 pb-3"><span id="connect">Mot de Passe Oublier</span></h6>
                     <div class="card-3d-wrap mx-auto">
                         <div class="card-3d-wrapper">
-
                             <div class="card-front">
                                 <div class="center-wrap">
                                     <div class="section text-center">
-                                        <h4 class="mb-4 pb-3">Réintialisation Mot de Passe</h4>
+                                        <?php
+                                        if (isset($_GET['Error'])){
+                                            ?>
+                                            <h4 class="mb-4 pb-3"><?=$_GET['Error']?></h4>
+                                            <?php
+                                        }else{
+                                            echo '<h4 class="mb-4 pb-3">Entrez vos info !</h4>';
+                                        }
+                                        ?>
                                         <form method="post" action="./Process/process_reset.php">
                                             <div class="form-group mt-2">
                                                 <input type="email" name="logemail" class="form-style"
@@ -53,6 +59,3 @@ include "./Utils/Header.php";
         </div>
     </div>
 </div>
-
-
-<script src="JS/Main.js"></script>
