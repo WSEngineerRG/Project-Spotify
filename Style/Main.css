@@ -345,6 +345,7 @@ input[type="text"]:focus {
     color: #e8eddf;
     text-decoration: none;
     box-shadow: 0px 0px 5px 0px #000000;
+    border: none;
 }
 
 .Box_Card:hover {
@@ -463,25 +464,21 @@ input[type="text"]:focus {
     }
 }
 
-.PlayBtn{
+.embed{
+    border-radius: 35px;
+    height: 300px;
+}
+
+#btn-play{
     position: relative;
     background-color: #1ed760;
     color: #000000;
     border-radius: 500px;
     font-size: inherit;
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     border: none;
+    right: 0;
 }
-.Hidde{
-    border-radius: 500px;
-    box-shadow: rgb(0 0 0 / 30%) 0px 8px 8px;
-    opacity: 0;
-    position: absolute;
-    transform: translateY(8px);
-    right: 10%;
-    top: 45%;
-    transition: all 0.3s ease 0s;
-    z-index: 2;
-}
+
 

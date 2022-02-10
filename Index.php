@@ -69,13 +69,23 @@ include "./Utils/Header.php";
                     <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                 </svg>
                 <i class="Send"></i></button>
+                <button id="btn-play" type="button" data-toggle="modal" data-target="#playlist">Play</button>
         </form>
     </div>
     </div>
     <div id="song-detail">
     </div>
-    <div class="Box_Player">
-
+    <div class="modal fade" id="playlist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div style="width: auto; height: auto; background-color: black">
+                    <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/playlist/1fm8rrezZi2Kb73TjM4mGD?utm_source=generator&theme=0" width="100%"
+                            height="380" frameBorder="0" allowFullScreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 <!--    <div data-testid="grid-container" class="Spotify_Embed_Params Spotify_Embed_Option BtbiwMynlB4flsYu_hA2" style="--column-width:182px;--minimumColumnWidth:180px;">-->
 <!--        <div class="spotify-embeds">-->
@@ -88,3 +98,6 @@ include "./Utils/Header.php";
 </main>
 <script src="JS/index.js"></script>
 <script src="JS/Api.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

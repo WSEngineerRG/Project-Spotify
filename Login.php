@@ -36,7 +36,7 @@ include "./Utils/Header.php";
                                             </div>
                                             <button href="#" type="submit" class="btn mt-4">Se connecter</button>
                                         </form>
-                                        <p class="mb-0 mt-4 text-center"><a href="#0" class="link">help</a></p>
+                                        <p class="mb-0 mt-4 text-center"><a href="resetPass.php" class="link">help</a></p>
                                     </div>
                                 </div>
                             </div>

@@ -40,6 +40,7 @@ const APIController = (function() {
         });
 
         const data = await result.json();
+
         return data.playlists.items;
     }
 
@@ -53,6 +54,7 @@ const APIController = (function() {
         });
 
         const data = await result.json();
+        console.log(data)
         return data.items;
     }
 
@@ -132,20 +134,29 @@ const UIController = (function() {
         },
 
         // need method to create the song detail
-        createTrackDetail(img, title, artist) {
+        createTrackDetail(img, title, artist, id) {
 
             const detailDiv = document.querySelector(DOMElements.divSongDetail);
 
             const html =
 
                 `
-                            <div class="Box_Card">
-                               <img class="card-img" src="${img}">
-                                 <div class="card-details">
-                                      <h2>${artist}</h2>
-                                      <p>${title}</p>
-                                 </div>
-                            </div>    
+                                <button class="Box_Card" type="button" data-toggle="modal" data-target="#exampleModal${id}">
+                                   <img class="card-img" src="${img}">
+                                     <div class="card-details">
+                                          <h2>${artist}</h2>
+                                          <p>${title}</p>
+                                     </div>
+                                </button> 
+                                    <div class="modal fade" id="exampleModal${id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div style="width: auto; height: auto; background-color: black">
+                                                    <iframe class="embed" style="border-radius:12px" src="https://open.spotify.com/embed/track/${id}?utm_source=generator&theme=0" width="100%" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen"></iframe>
+                                                </div>
+                                        </div>
+                                        </div>
+                                    </div>
             `;
 
             detailDiv.insertAdjacentHTML('beforeend', html)
@@ -225,8 +236,9 @@ const APPController = (function(UICtrl, APICtrl) {
         // get the list of tracks
         const tracks = await APICtrl.getTracks(token, tracksEndPoint);
         // create a track list item
+        console.log(tracks)
         tracks.forEach(el =>
-            UICtrl.createTrackDetail(el.track.album.images[2].url, el.track.name, el.track.artists[0].name)
+            UICtrl.createTrackDetail(el.track.album.images[2].url, el.track.name, el.track.artists[0].name, el.track.id)
         )
     });
 
