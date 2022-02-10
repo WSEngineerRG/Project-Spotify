@@ -1,6 +1,6 @@
 :root{
     --dark_leftpart: #000000;
-    --main: #1a1a1a;
+    --main: #121212;
     --TopbarColors: #101010;
     --nav-bar-width: auto;
     --darkmode_Text: white;
@@ -332,60 +332,88 @@ input[type="text"]:focus {
 }
 
 .Box_Card {
+    position: relative;
+    height: auto;
+    padding: 16px;
+    background: #181818;
+    -webkit-transition: background-color .3s ease;
+    transition: background-color .3s ease;
     margin: auto auto;
     transition: all 100ms ease-in-out;
     border-radius: 0.5em;
-    width: 50%;
-    background-color: #181818;
+    width: 70%;
     color: #e8eddf;
     text-decoration: none;
+    box-shadow: 0px 0px 5px 0px #000000;
 }
 
 .Box_Card:hover {
-    background-color: #333533;
-    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
-    width: 60%;
-    height: auto;
-    border-radius: 1em;
+    background: rgba(37, 35, 35, 0.92);
+    transition: background 50ms;
+    transform: scale(1.1);
 }
+
+.Box_Card:hover, .PlayBtn {
+    opacity: 1;
+}
+
+
+
+/*.Box_Card:hover {*/
+/*    background-color: #333533;*/
+/*    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);*/
+/*    width: 60%;*/
+/*    height: auto;*/
+/*    border-radius: 1em;*/
+/*}*/
 
 .card-img {
-    border-radius: 0.5em;
-    height: auto;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding-bottom: 10%;
+    position: relative;
     width: 100%;
-    transition: all 200ms ease-in-out;
 }
 
-.card:hover .card-img{
-    filter: blur(3px);
-    margin-top: 0;
-    opacity: 0.3;
-    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0)));
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
-}
+/*.card:hover .card-img{*/
+/*    filter: blur(3px);*/
+/*    margin-top: 0;*/
+/*    opacity: 0.3;*/
+/*    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0)));*/
+/*    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));*/
+/*}*/
 
 .card-details {
-    transition: all 200ms ease-in-out;
-    height: 0;
+    box-sizing: border-box;
+    font-family: spotify-circular, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    font-weight: 400;
+    color: var(--text-subdued,#575757);
+    min-height: 62px;
 }
 
-.card:hover .card-details {
-    font-size: 1.5em;
-    text-align: center;
-    height: 0;
-    transform: translateY(-6em);
-}
+/*.card:hover .card-details {*/
+/*    font-size: 1.5em;*/
+/*    text-align: center;*/
+/*    height: 0;*/
+/*    transform: translateY(-6em);*/
+/*}*/
 
-.card-hidden {
-    opacity: 0;
-    transition: opacity 100ms ease-in-out;
-    display: none;
-}
+/*.card-hidden {*/
+/*    opacity: 0;*/
+/*    transition: opacity 100ms ease-in-out;*/
+/*    display: none;*/
+/*}*/
 
-.card:hover .card-hidden {
-    opacity: 1;
-    display: block;
-}
+/*.card:hover .card-hidden {*/
+/*    opacity: 1;*/
+/*    display: block;*/
+/*}*/
 
 .card-footer {
     padding: 1em;
@@ -402,6 +430,7 @@ input[type="text"]:focus {
 @media (min-width: 576px) {
     #song-detail {
         display: grid;
+        gap: 30px;
         justify-content: space-between;
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -410,23 +439,49 @@ input[type="text"]:focus {
 @media (min-width: 768px) {
     #song-detail {
         display: grid;
+        gap: 30px;
         justify-content: space-between;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
 @media (min-width: 992px) {
     #song-detail {
         display: grid;
+        gap: 30px;
         justify-content: space-between;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
 @media (min-width: 1080px) {
     #song-detail {
         display: grid;
+        gap: 30px;
         justify-content: space-between;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
+
+.PlayBtn{
+    position: relative;
+    background-color: #1ed760;
+    color: #000000;
+    border-radius: 500px;
+    font-size: inherit;
+    width: 48px;
+    height: 48px;
+    border: none;
+}
+.Hidde{
+    border-radius: 500px;
+    box-shadow: rgb(0 0 0 / 30%) 0px 8px 8px;
+    opacity: 0;
+    position: absolute;
+    transform: translateY(8px);
+    right: 10%;
+    top: 45%;
+    transition: all 0.3s ease 0s;
+    z-index: 2;
+}
+

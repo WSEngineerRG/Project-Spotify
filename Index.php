@@ -74,6 +74,9 @@ include "./Utils/Header.php";
     </div>
     <div id="song-detail">
     </div>
+    <div class="Box_Player">
+
+    </div>
 <!--    <div data-testid="grid-container" class="Spotify_Embed_Params Spotify_Embed_Option BtbiwMynlB4flsYu_hA2" style="--column-width:182px;--minimumColumnWidth:180px;">-->
 <!--        <div class="spotify-embeds">-->
 <!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:2UDe8QqHAXUaLrdb0QsDGE" width="auto" height="80" allowtransparency="true"></iframe></div>-->
