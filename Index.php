@@ -1,5 +1,7 @@
 <?php
 session_start();
+$user = $_SESSION["username"];
+$Email = $_SESSION["email"];
 include "./Utils/Header.php";
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -46,13 +48,32 @@ include "./Utils/Header.php";
             </label>
             <input id="file" type="file" onchange="loadFile(event)"/>
             <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" id="output" width="200"/>
-            </div>
-            <div class="User_Pos">
-                <p class="user"><?=$_SESSION['username']?></p>
+        </div>
+        <div class="User_Pos">
+            <button  class="Info_user" data-toggle="modal" data-target="#exampleModal"><?=$user?></button>
+        </div>
+</div>
+</html>
+<main>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Information Du Compte!</h5>
+                    <button type="button" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Pseudo : <?=$user?><br>
+                    Email : <?=$Email?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Déconnexion</button>
+                </div>
             </div>
         </div>
-    </html>
-<main>
+    </div>
     <div class="container">
         <form action="">
             <input type="hidden" id='hidden_token'>
@@ -74,17 +95,29 @@ include "./Utils/Header.php";
     </div>
     <div id="song-detail">
     </div>
-    <div class="Box_Player">
-
+    <div class="modal fade" id="playlist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div style="width: auto; height: auto; background-color: black">
+                    <iframe style="border-radius:12px"
+                            src="https://open.spotify.com/embed/playlist/1fm8rrezZi2Kb73TjM4mGD?utm_source=generator&theme=0" width="100%"
+                            height="380" frameBorder="0" allowFullScreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
-<!--    <div data-testid="grid-container" class="Spotify_Embed_Params Spotify_Embed_Option BtbiwMynlB4flsYu_hA2" style="--column-width:182px;--minimumColumnWidth:180px;">-->
-<!--        <div class="spotify-embeds">-->
-<!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:2UDe8QqHAXUaLrdb0QsDGE" width="auto" height="80" allowtransparency="true"></iframe></div>-->
-<!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:51vBEL5eVtII7uIEDltWwB" width="auto" height="80" allowtransparency="true"></iframe></div>-->
-<!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:dembsky:playlist:7qfcDxieRKE6VOFE3YNKbz" width="auto" height="80" allowtransparency="true"></iframe></div>-->
-<!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:thech053none:playlist:3epVhtO7ZWOB4DzuJFY5da" width="auto" height="80" allowtransparency="true"></iframe></div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--    <div data-testid="grid-container" class="Spotify_Embed_Params Spotify_Embed_Option BtbiwMynlB4flsYu_hA2" style="--column-width:182px;--minimumColumnWidth:180px;">-->
+    <!--        <div class="spotify-embeds">-->
+    <!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:2UDe8QqHAXUaLrdb0QsDGE" width="auto" height="80" allowtransparency="true"></iframe></div>-->
+    <!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:oosabaj:playlist:51vBEL5eVtII7uIEDltWwB" width="auto" height="80" allowtransparency="true"></iframe></div>-->
+    <!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:dembsky:playlist:7qfcDxieRKE6VOFE3YNKbz" width="auto" height="80" allowtransparency="true"></iframe></div>-->
+    <!--            <div class="spotify-embed"><iframe src="https://embed.spotify.com/?uri=spotify:user:thech053none:playlist:3epVhtO7ZWOB4DzuJFY5da" width="auto" height="80" allowtransparency="true"></iframe></div>-->
+    <!--        </div>-->
+    <!--    </div>-->
 </main>
 <script src="JS/index.js"></script>
 <script src="JS/Api.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
