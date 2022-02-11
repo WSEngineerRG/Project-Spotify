@@ -15,15 +15,15 @@ if (
     && !empty($_POST['confNewPass'])
 ) {
     include "../Utils/DB_Connect.php";
-    $sql = ("SELECT email from users WHERE user_id= ?");
+    $sql = ("SELECT user_id from users WHERE email= ?");
     $stmt = $bdd->prepare($sql);
-    $stmt->execute([$userid]);
+    $stmt->execute([$Mail]);
     # si l'email existe
     $user = $stmt->fetch();
     if ($newPass === $confNewPass) {
         $pdo = $bdd->prepare("UPDATE users set password= ? WHERE user_id= ?");
-        $test = $pdo->execute([$newPass, $userid]);
-        header('Location: ../Index.php');
+        $test = $pdo->execute([$newPass, $user['user_id']]);
+        header('Location: ../Login.php');
     } else
         header('Location: ../resetPass.php?Error=Les mot de passe de passe ne corresponde pas !');
 }else{
