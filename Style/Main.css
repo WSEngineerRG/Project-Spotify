@@ -234,9 +234,6 @@ input[type="text"]:focus {
     height: 2em;
 }
 
-.User_Pos{
-}
-
 @media (max-width: 500px) {
     .user{
         position: static !important;
@@ -480,5 +477,19 @@ input[type="text"]:focus {
     border: none;
     right: 0;
 }
+
+.modal-content{
+    background-color: #181818;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+
+.Info_user{
+    background-color: transparent;
+    color: #FFFFFF;
+    border: none;
+}
+
 
 

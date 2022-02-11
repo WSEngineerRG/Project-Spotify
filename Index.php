@@ -1,5 +1,7 @@
 <?php
 session_start();
+$user = $_SESSION["username"];
+$Email = $_SESSION["email"];
 include "./Utils/Header.php";
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -48,11 +50,30 @@ include "./Utils/Header.php";
             <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" id="output" width="200"/>
             </div>
             <div class="User_Pos">
-                <p class="user"><?=$_SESSION['username']?></p>
+                <button  class="Info_user" data-toggle="modal" data-target="#exampleModal"><?=$user?></button>
             </div>
         </div>
     </html>
 <main>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Information Du Compte!</h5>
+                    <button type="button" class="btn btn-danger" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Pseudo : <?=$user?><br>
+                    Email : <?=$Email?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Déconnexion</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <form action="">
             <input type="hidden" id='hidden_token'>
@@ -69,7 +90,6 @@ include "./Utils/Header.php";
                     <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                 </svg>
                 <i class="Send"></i></button>
-                <button id="btn-play" type="button" data-toggle="modal" data-target="#playlist">Play</button>
         </form>
     </div>
     </div>
