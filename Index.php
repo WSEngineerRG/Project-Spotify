@@ -69,7 +69,7 @@ include "./Utils/Header.php";
                     Email : <?=$Email?>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Déconnexion</button>
+                    <a href="./Process/Logout.php" type="button" class="btn btn-danger">Déconnexion</a>
                 </div>
             </div>
         </div>

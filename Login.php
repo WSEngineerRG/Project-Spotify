@@ -23,7 +23,7 @@ include "./Utils/Header.php";
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h4 class="mb-4 pb-3">Connection</h4>
-                                        <form method="post" action="./Process/Connect.php">
+                                        <form method="post" action="./Process/process_auth.php">
                                             <div class="form-group">
                                                 <input type="email" name="logEmail" class="form-style"
                                                        placeholder="Email" id="logemail" autocomplete="off">
