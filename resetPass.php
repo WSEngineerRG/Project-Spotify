@@ -31,23 +31,23 @@ include "./Utils/Header.php";
                                             echo '<h4 class="mb-4 pb-3">Entrez vos info !</h4>';
                                         }
                                         ?>
-                                        <form method="post" action="./Process/process_reset.php">
+                                        <form id="Form" method="post" action="">
                                             <div class="form-group mt-2">
                                                 <input type="email" name="logemail" class="form-style"
                                                        placeholder="Entrez votre email" id="logemail" autocomplete="off">
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" name="newPass" class="form-style"
+                                                <input  type="password" name="newPass" class="form-style"
                                                        placeholder="Nouveau mot de passe" id="newPass" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" name="confNewPass" class="form-style"
+                                                <input  type="password" name="confNewPass" class="form-style"
                                                        placeholder="Confirmation mot de passe" id="confNewPass" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <button type="submit" name="submit" class="btn mt-4">Confirmer</button>
+                                            <button onclick="Isempty()" type="submit" name="submit" class="btn mt-4">Confirmer</button>
                                         </form>
                                     </div>
                                 </div>
@@ -57,5 +57,19 @@ include "./Utils/Header.php";
                 </div>
             </div>
         </div>
-    </div>
 </div>
+
+<script>
+    function Isempty(){
+            let ConfPass = document.getElementById('confNewPass');
+            let Pass = document.getElementById('newPass');
+            let Mail = document.getElementById('logemail');
+            let Form = document.getElementById('Form');
+
+            if (Mail.value == "" && Pass.value == "" && ConfPass.value == "") {
+                return alert("Formulaire incorrect !");
+            }else{
+                Form.action='./Process/process_reset.php';
+            }
+        }
+</script>
