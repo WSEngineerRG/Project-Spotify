@@ -23,18 +23,18 @@ include "./Utils/Header.php";
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h4 class="mb-4 pb-3">Connection</h4>
-                                        <form method="post" action="./Process/process_auth.php">
+                                        <form id="connectForm" method="post" action="">
                                             <div class="form-group">
-                                                <input type="email" name="logEmail" class="form-style"
+                                                <input onchange="emptychecked()" type="email" name="logEmail" class="form-style"
                                                        placeholder="Email" id="logemail" autocomplete="off">
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" name="logPass" class="form-style"
+                                                <input onchange="emptycheckedtwo()" type="password" name="logPass" class="form-style"
                                                        placeholder="Password" id="logpass" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <button href="#" type="submit" class="btn mt-4">Se connecter</button>
+                                            <button id="Send" onclick="IsEmpty()" type="submit"  class="btn mt-4">Se connecter</button>
                                         </form>
                                         <p class="mb-0 mt-4 text-center"><a href="resetPass.php" class="link">help</a></p>
                                     </div>

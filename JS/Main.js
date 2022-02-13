@@ -16,12 +16,12 @@ someCheckbox.addEventListener('change', e => {
     if(e.target.checked === true) {
         addactiveSnd.style.textShadow='#6fd862 0px 0px 17px';
         addactiveSt.style.textShadow='';
-        console.log("Checkbox is checked - boolean value: ", e.target.checked)
+        console.log("boolean value: ", e.target.checked)
     }
     if(e.target.checked === false) {
         addactiveSt.style.textShadow='#6fd862 0px 0px 17px';
         addactiveSnd.style.textShadow='';
-        console.log("Checkbox is not checked - boolean value: ", e.target.checked)
+        console.log("boolean value: ", e.target.checked)
     }
 });
 
@@ -30,12 +30,14 @@ addactiveSnd.addEventListener('click', () =>{
     someCheckbox.checked = true;
     addactiveSnd.style.textShadow='#6fd862 0px 0px 17px';
     addactiveSt.style.textShadow='';
+    console.log("boolean value :", someCheckbox.checked);
 })
 
 addactiveSt.addEventListener('click', () =>{
     someCheckbox.checked = false;
     addactiveSt.style.textShadow='#6fd862 0px 0px 17px';
     addactiveSnd.style.textShadow='';
+    console.log("boolean value :", someCheckbox.checked);
 })
 
 addactiveSnd.addEventListener('mouseover', ev =>{
@@ -45,4 +47,32 @@ addactiveSnd.addEventListener('mouseover', ev =>{
 addactiveSt.addEventListener('mouseover', ev =>{
     ev.target.style.cursor='pointer';
 })
+
+function emptychecked(){
+    console.log('ok')
+}
+
+function emptycheckedtwo(){
+    console.log('ok2')
+}
+
+function IsEmpty() {
+    let Pass = document.getElementById('logpass');
+    let Mail = document.getElementById('logemail');
+    let Form = document.getElementById('connectForm');
+    let Sends = document.getElementById('Send');
+
+    if (Mail.value == "" && Pass.value == "") {
+        // Sends.disabled='true';
+        return alert("Formulaire incorrect !");
+    }else{
+        Form.action='./Process/process_auth.php';
+    }
+
+    if (emptychecked() == true && emptycheckedtwo() == true){
+        Sends.disabled='false';
+    }
+}
+
+
 
