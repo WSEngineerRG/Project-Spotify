@@ -44,23 +44,23 @@ include "./Utils/Header.php";
                                 <div class="center-wrap">
                                     <div class="section text-center">
                                         <h4 class="mb-4 pb-3">Créer un compte</h4>
-                                        <form method="post" action="./Process/New_account.php">
+                                        <form id="creationForm" method="post" action="">
                                             <div class="form-group">
                                                 <input type="text" name="logName" class="form-style" placeholder="Nom"
-                                                       id="logname" autocomplete="off">
+                                                       id="logName" autocomplete="off">
                                                 <i class="input-icon uil uil-user"></i>
                                             </div>
                                             <div class="form-group mt-2">
                                                 <input type="email" name="logemail" class="form-style"
-                                                       placeholder="Email" id="logemail" autocomplete="off">
+                                                       placeholder="Email" id="logEmail" autocomplete="off">
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
                                                 <input type="password" name="logpass" class="form-style"
-                                                       placeholder="Password" id="logpass" autocomplete="off">
+                                                       placeholder="Password" id="logPass" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <button type="submit" class="btn mt-4">Envoyer</button>
+                                            <button id="Sends" onclick="IsEmptyCreation()" type="submit" class="btn mt-4">Envoyer</button>
                                         </form>
                                     </div>
                                 </div>

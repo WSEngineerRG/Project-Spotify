@@ -74,5 +74,19 @@ function IsEmpty() {
     }
 }
 
+function IsEmptyCreation(){
+    let Name = document.getElementById('logName');
+    let Pass = document.getElementById('logPass');
+    let Mail = document.getElementById('logEmail');
+    let Form = document.getElementById('creationForm');
+
+    if (Mail.value == "" && Pass.value == "" && Name.value == "") {
+        // Sends.disabled='true';
+        return alert("Formulaire incorrect !");
+    }else{
+        Form.action='./Process/New_account.php';
+    }
+}
+
 
 
