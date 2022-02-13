@@ -5,8 +5,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
 //option: remove right click \ when DevMode comment line !
-// document.addEventListener('contextmenu', event => event.preventDefault());
-//
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 
 const someCheckbox = document.getElementById('boxCheck');
 let addactiveSt = document.getElementById('connect')
@@ -24,3 +24,25 @@ someCheckbox.addEventListener('change', e => {
         console.log("Checkbox is not checked - boolean value: ", e.target.checked)
     }
 });
+
+
+addactiveSnd.addEventListener('click', () =>{
+    someCheckbox.checked = true;
+    addactiveSnd.style.textShadow='#6fd862 0px 0px 17px';
+    addactiveSt.style.textShadow='';
+})
+
+addactiveSt.addEventListener('click', () =>{
+    someCheckbox.checked = false;
+    addactiveSt.style.textShadow='#6fd862 0px 0px 17px';
+    addactiveSnd.style.textShadow='';
+})
+
+addactiveSnd.addEventListener('mouseover', ev =>{
+    ev.target.style.cursor='pointer';
+})
+
+addactiveSt.addEventListener('mouseover', ev =>{
+    ev.target.style.cursor='pointer';
+})
+
