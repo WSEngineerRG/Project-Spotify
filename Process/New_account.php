@@ -70,16 +70,16 @@ if (isset($_POST['logName']) && !empty($_POST['logName']) && isset($_POST['logem
             } else {
 
                 #hachage du mot de passe
-                $logpass = password_hash($logpass, PASSWORD_DEFAULT);
+                $logpass = password_hash($Password, PASSWORD_DEFAULT);
                 if (isset($Name, $Mail, $Password)) {
                     #inserion des données dans la base de donnée
                     $sql = "INSERT INTO users (username, email, password, user_ip) Value (?, ?, ?, ?)";
                     $stmt = $bdd->prepare($sql);
-                    $stmt->execute([$Name, $Mail, $Password,  getIp()]);
+                    $stmt->execute([$Name, $Mail, $logpass,  getIp()]);
                 } else {
                     $sql = "INSERT INTO users (username, email, password, user_ip) Value (?, ?, ?, ?)";
                     $stmt = $bdd->prepare($sql);
-                    $stmt->execute([$Name, $Mail, $Password, getIp()]);
+                    $stmt->execute([$Name, $Mail, $logpass, getIp()]);
                 }
                 #message de succès
                 $sm = "Création compte confirmée!";
@@ -91,7 +91,7 @@ if (isset($_POST['logName']) && !empty($_POST['logName']) && isset($_POST['logem
     }
 
     $pdo = $bdd->prepare("INSERT INTO users (logemail, email, logpass, user_ip) VALUE (?,?,?,?) ");
-    $reqPass = $pdo->execute([$Name, $Mail, $Password, getIp()]);
+    $reqPass = $pdo->execute([$Name, $Mail, $logpass, getIp()]);
     sleep(02);
     header('location: ../Index.php?Success=Connecter&en&tant&que&'.$Name);
 }else{

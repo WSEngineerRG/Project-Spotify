@@ -14,6 +14,7 @@ if (
     $Mail = $_POST['logEmail'];
     $Password = $_POST['logPass'];
 
+
     # validation formulaire
 
     if (empty($Mail)) {
@@ -35,8 +36,10 @@ if (
             $user = $stmt->fetch();
 
             if ($user) {
+                $existingHashFromDb = $user['password'];
+                $isPasswordCorrect = password_verify($Password , $existingHashFromDb);
                 # aller chercher les données de l'utilisateur
-                if ($Password === $user['password']) {
+                if ($isPasswordCorrect) {
                     $Success = "Bienvenue!";
                     header("location: ../index.php?success=$Success");
 

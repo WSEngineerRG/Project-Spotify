@@ -4,6 +4,7 @@ session_start();
 $userid = $_SESSION['user_id'];
 $Mail = $_POST ['logemail'];
 $newPass = $_POST ['newPass'];
+$hash_pass = password_hash($newPass, PASSWORD_DEFAULT);
 $confNewPass = $_POST ['confNewPass'];
 
 if (
@@ -22,7 +23,7 @@ if (
     $user = $stmt->fetch();
     if ($newPass === $confNewPass) {
         $pdo = $bdd->prepare("UPDATE users set password= ? WHERE user_id= ?");
-        $test = $pdo->execute([$newPass, $user['user_id']]);
+        $test = $pdo->execute([$hash_pass, $user['user_id']]);
         header('Location: ../Login.php');
     } else
         header('Location: ../resetPass.php?Error=Les mot de passe de passe ne corresponde pas !');
